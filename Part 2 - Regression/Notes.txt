@@ -1,0 +1,36 @@
+Assumptions of Linear Regression:
+
+-> Linearity: Linear relationship between Y and each X
+-> Homoscedasticity: Equal Variance
+-> Multivariate Normality: Normality of error distribution
+-> Independence: No autocorrelation (a point in a graph should not depend upon the value of previous point)
+-> Lack of Multicollinearity: Predictors are not correlated with each other
+
+Safety Check:
+
+-> The Outlier Check: Remove them before training or include them (depends on usecase)
+
+Methods of building models:
+
+-> All-in: Take all the features into consideration
+-> Stepwise Regression
+	-> Backward Elimination
+		- Step 1: Select a significance level to stay in the model (e.g. SL = 0.05)
+		- Step 2: Fit the full model with all possible predictors
+		- Step 3: Consider the predictor with the highest P-value. If P > SL, go to STEP 4, otherwise FINISH
+		- Step 4: Remove the predictor
+		- Step 5: Fit the model without this variable (which is removed in Step 4). Go to STEP 3
+	-> Forward Selection
+		- Step 1: Select a significance level to enter the model (e.g. SL = 0.05)
+		- Step 2: Fit all simple regression models y~x(n). Select the one with the lowest P-value
+		- Step 3: Keep this variable and fit all possible models with one extra predictor added to the one(s) you already have
+		- Step 4: Consider the predictor with lowest P-value. If P < SL, go to STEP 3, otherwise FINISH
+	-> Bidirectional Elimination
+		- Step 1: Select a significance level to enter and to stay in the model (e.g. SLENTER = 0.05, SLSTAY = 0.05)
+		- Step 2: Perform the next step of Forward Selection (new variables must have: P < SLENTER to enter)
+		- Step 3: Perform all steps of Backward Elimination (old variables must have P < SLSTAY to stay). Go to STEP 2
+		- Step 4: No new variables can enter and no old variables can exit. FINISH
+-> Score Comparison
+	- Step 1: Select a criterionof goodness of fit (e.g. Akaike criterion)
+	- Step 2: Construct all possible regression models (2^n - 1) total combinations
+	- Step 3: Select the one with the best criterion. FINISH
