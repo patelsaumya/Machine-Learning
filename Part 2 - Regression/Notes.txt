@@ -1,3 +1,9 @@
+Encoding Categorical data:
+
+-> no ordering: One-hot encoder (e.g. country name)
+-> ordering exists: Label encoder (e.g. t-shirt size)
+
+
 Assumptions of Linear Regression:
 
 -> Linearity: Linear relationship between Y and each X
