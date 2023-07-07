@@ -47,3 +47,13 @@ Random Forest:
 -> Step 2: Build the Decision Tree associated to these K data points.
 -> Step 3: Choose the number NTree of trees you want to build and repeat STEPS 1 & 2.
 -> Step 4: For a new data point, make each one of your Ntree trees predictthe value of Y to for the data point in question, and assign the new data point the average across all of the predicted Y values. FINISH
+
+Evaluating Regression Models Performance:
+
+-> Residual Sum of Squares (SS(res)) = SUM((y(actual) - y(predicted))^2)
+-> Total Sum of Squares (SS(tot)) = SUM((y(actual) - y(average-actual))^2)
+-> R Squared (R^2) = 1 - SS(res)/SS(tot), tells the goodness of fit
+-> greater the R^2 -> better the model
+-> Adjusted R^2 = 1 - (1-R^2)*((n-1)/(n-k-1))
+	-> k - number of independent variables
+	-> n - sample size
